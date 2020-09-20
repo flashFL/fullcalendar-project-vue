@@ -7,7 +7,7 @@ This is a example project for FullCalendar and Vue, view is resource-timegrid, i
 
 ```bash
 git clone git@github.com:flashFL/fullcalendar-project-vue.git
-cd fullcalendar-project-vue/vue
+cd fullcalendar-project-vue
 npm install
 ```
 
