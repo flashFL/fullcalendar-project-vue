@@ -72,22 +72,19 @@ export default {
   },
   methods: {
     initDraggable(){
-      document.addEventListener('DOMContentLoaded', function() {
+      var containerEl = document.getElementById('external-events');
 
-        var containerEl = document.getElementById('external-events');
+      // initialize the external events
+      // -----------------------------------------------------------------
 
-        // initialize the external events
-        // -----------------------------------------------------------------
-
-        new Draggable(containerEl, {
-          itemSelector: '.fc-event',
-          eventData: function(eventEl) {
-            return {
-              title: eventEl.innerText,
-              duration: '02:00', //事件持续时间
-            };
-          }
-        });
+      new Draggable(containerEl, {
+        itemSelector: '.fc-event',
+        eventData: function(eventEl) {
+          return {
+            title: eventEl.innerText,
+            duration: '02:00', //事件持续时间
+          };
+        }
       });
     },
     handleEventClick(clickInfo) {
@@ -100,8 +97,10 @@ export default {
       info.draggedEl.parentNode.removeChild(info.draggedEl);
     }
   },
-  created(){
-    this.initDraggable()
+  mounted(){
+    this.$nextTick(() => {
+      this.initDraggable()
+    })
   },
 }
 </script>
